@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h2>2019 G�z D�neminin ilk �devi</h2>
-<label for="id1">Metin kutusu 1</label>
-<input type='text' id='id1' /> 
-<br>
-<label for="id2">Metin kutusu 2</label>
-<input type='text' id='id2' /> 
-<br><br>
-<button type="button">Topla</button>
-<br><br>
-<label for="id3">Metin kutusu 3</label>
-<input type='text' id='id3' /> 
-<br>
-<label for="id4">Metin kutusu 4</label>
-<input type='text' id='id4' /> 
-<br><br>
-<button type="button">Yap��t�r</button>
-</body>
+  <head>
+    <title>Tuğrul Gençoğlu - 2019280030</title>
+  </head>
+  <body>
+    <h2>Tuğrul Gençoğlu - 2019280030</h2>
+    <label for="number1">Sayı 1:</label>
+    <input type='text' id='number1' />
+    <br>
+    <label for="number2">Sayı 2:</label>
+    <input type='text' id='number2' />
+    <br><br>
+    <button type="button" id="sum">Topla</button>
+    <br><br>
+    <label for="text1">Metin 1</label>
+    <input type='text' id='text1' />
+    <br>
+    <label for="text2">Metin 2</label>
+    <input type='text' id='text2' />
+    <br><br>
+    <button type="button" id="merge">Yapıştır</button>
+    <script type="text/javascript">
+    
+      /**
+       * @referance https://stackoverflow.com/a/3261380
+       */
+      String.prototype.isBlank = function() {
+          return this.trim().length==0;
+      };
+
+      document.querySelector("#sum").onclick = ()=>{
+        let number1 = document.querySelector("#number1").value;
+        let number2 = document.querySelector("#number2").value;
+        if(number1.isBlank() || number2.isBlank() || isNaN(number1) || isNaN(number2)){
+          alert("Lütfen tüm kutucukları uygun şekilde doldurunuz!");
+        }else{
+          let sum=Number(number1)+Number(number2);
+          alert(number1 + " + " + number2 + " = " + sum); 
+        }
+      };
+
+      document.querySelector("#merge").onclick = ()=>{
+        let text1 = document.querySelector("#text1").value;
+        let text2 = document.querySelector("#text2").value;
+        if(text1.isBlank() || text2.isBlank() ){
+          alert("Lütfen tüm kutucukları doldurunuz!");
+        }else{
+          let newText= text1+text2;
+          alert(newText); 
+        }
+      };  
+    </script>
+  </body>
+
 </html>
